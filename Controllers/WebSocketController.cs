@@ -35,6 +35,11 @@ namespace M9_WebSocketServer.Controllers
 
                 // Quan es connecta un nou usuari: cal afegir el SocketHandler a la Collection, notificar a tothom la incorporació i donar-li la benvinguda
 
+                Sockets.Add(this);
+
+                Sockets.Broadcast(_nom+" Se incluye en el videojuego!!!!"); 
+
+
 
 
             }
@@ -44,6 +49,10 @@ namespace M9_WebSocketServer.Controllers
             {
 
                 // Quan un usuari envia un missatge, cal que tothom el rebi
+
+                Sockets.Broadcast(_nom+":"+missatge); 
+
+
 
             }
 
