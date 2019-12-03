@@ -60,6 +60,11 @@ namespace M9_WebSocketServer.Controllers
             {
                 // Quan un usuari desconnecta, cal acomiadar-se'n, esborrar-ne el SocketHandler de la Collection i notificar a la resta que marxa
 
+                this.Send(string.Format("A reveure,{0}!", _nom));
+                Sockets.Remove(this);
+                Sockets.Broadcast(string.Format("{0} ha marxat del grup", _nom));
+
+
             }
         }
     }
